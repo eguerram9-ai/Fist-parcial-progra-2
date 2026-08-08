@@ -183,6 +183,15 @@ public class Biblioteca {
 	 *   retorna null).
 	 */
 	public Libro prestarPrimerDisponibleDeCategoria(String categoria) throws LibroNoDisponibleException {
-		for(Libro e.)
+		for (Libro libro : libros) {
+		    if (libro.getCategoria().equals(categoria) && libro.estaDisponible()) {
+		        libro.prestar();
+		        return libro;
+		    }
+		}
+
+		throw new LibroNoDisponibleException(
+		        "No hay libros disponibles en la categoría " + categoria
+		);
 	}
 }
