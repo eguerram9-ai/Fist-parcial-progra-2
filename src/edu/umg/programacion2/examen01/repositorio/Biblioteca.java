@@ -89,8 +89,15 @@ public class Biblioteca {
 	 * - Si el catálogo está vacío, retorna un Map vacío (no null).
 	 */
 	public Map<String, Integer> contarLibrosPorCategoria() {
-		// TODO: reemplazar esta línea por la lógica descrita arriba.
-		throw new UnsupportedOperationException("TODO: completar contarLibrosPorCategoria() en Biblioteca");
+		Map<String, Integer> conteo = new HashMap<>();
+
+		for (Libro libro : libros) {
+		    String categoria = libro.getCategoria();
+		    int cantidadActual = conteo.getOrDefault(categoria, 0);
+		    conteo.put(categoria, cantidadActual + 1);
+		}
+
+		return conteo;
 	}
 
 	/**
@@ -113,8 +120,15 @@ public class Biblioteca {
 	 * - Si no hay coincidencias, retorna una lista vacía (no null).
 	 */
 	public List<Libro> buscarPorTituloParcial(String texto) {
-		// TODO: reemplazar esta línea por la lógica descrita arriba.
-		throw new UnsupportedOperationException("TODO: completar buscarPorTituloParcial() en Biblioteca");
+		List<Libro> resultado = new ArrayList<>();
+
+		for (Libro libro : libros) {
+		    if (libro.getTitulo().toLowerCase().contains(texto.toLowerCase())) {
+		        resultado.add(libro);
+		    }
+		}
+
+		return resultado;
 	}
 
 	/**
