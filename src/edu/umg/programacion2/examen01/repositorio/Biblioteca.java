@@ -24,6 +24,7 @@ public class Biblioteca {
 	private final List<Libro> libros = new ArrayList<>();
 	private final Map<String, Libro> librosPorIsbn = new HashMap<>();
 	private final Set<String> categorias = new HashSet<>();
+	private Biblioteca libro;
 
 	public void agregar(Libro libro) {
 		libros.add(libro);
@@ -141,8 +142,12 @@ public class Biblioteca {
 	 *   excepción.
 	 */
 	public Libro libroMasAntiguoDeCategoria(String categoria) {
-		// TODO: reemplazar esta línea por la lógica descrita arriba.
-		throw new UnsupportedOperationException("TODO: completar libroMasAntiguoDeCategoria() en Biblioteca");
+		for(Libro e: buscarPorTituloParcial(categoria)) {
+			if (e.equals(libro.libroMasAntiguoDeCategoria(categoria))) {
+				return e;
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -164,8 +169,6 @@ public class Biblioteca {
 	 *   retorna null).
 	 */
 	public Libro prestarPrimerDisponibleDeCategoria(String categoria) throws LibroNoDisponibleException {
-		// TODO (opcional): reemplazar esta línea por la lógica descrita arriba.
-		throw new UnsupportedOperationException(
-				"TODO opcional: completar prestarPrimerDisponibleDeCategoria() en Biblioteca");
+		for(Libro e.)
 	}
 }
